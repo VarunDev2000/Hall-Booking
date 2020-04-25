@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>STUDENT SIGN UP</title>
+	
+	<script>
+		function validateForm() {
+		  var pass = document.forms["student"]["password"].value;
+		  var c_pass = document.forms["student"]["cpass"].value;
+		  var r_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$/;
+			  
+		  if(r_pass.test(pass) == false){
+		   alert(" Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.");
+		   return false;
+		  }
+	
+		  if (pass !== c_pass) {
+			alert("Password and Confirm Password not matching.");
+			return false;
+		  }
+		}
+	</script>
+</head>
+<body>
+
+<center>
+<h1>STUDENT - SIGN IN</h1>
+<br/>
+<form name="student" action = "studentsigndb.jsp" method="POST" onsubmit="return validateForm()">
+<center>
+Username  <input type="text" name="uname" required minlength="5">
+<br/><br/>
+Name      <input type="text" name="name" required>
+<br/><br/>
+Password  <input type="password" name="password" required minlength="8">
+<br/><br/>
+Confirm Password  <input type="password" name="cpass" required minlength="8">
+<br/><br/><br/>
+<input type="submit" value="submit">
+</form>
+</center>
+
+</body>
+</html>

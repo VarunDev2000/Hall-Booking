@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>STAFF SIGN-IN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+	
+	<script>
+		function validateForm() {
+		  var pass = document.forms["staff"]["password"].value;
+		  var c_pass = document.forms["staff"]["cpass"].value;
+		  var r_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$/;
+			  
+		  if(r_pass.test(pass) == false){
+		   alert(" Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.");
+		   return false;
+		  }
+	
+		  if (pass !== c_pass) {
+			alert("Password and Confirm Password not matching.");
+			return false;
+		  }
+		}
+	</script>
+<body>
+
+<center>
+<h1>STAFF - SIGN IN</h1>
+<br/>
+<form name="staff" action="staffsigndb.jsp" method="POST" onsubmit="return validateForm()">
+
+Username  <input type="text" name="uname" required minlength="5">
+<br/><br/>
+Name      <input type="text" name="name" required>
+<br/><br/>
+Password  <input type="password" name="password" required minlength="8">
+<br/><br/>
+Confirm Password<input type="password" name="cpass" required minlength="8">
+<br/><br/><br/>
+<input type="submit" value="submit">
+
+</form>
+</center>
+
+</body>
+</html>
