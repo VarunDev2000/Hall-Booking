@@ -41,13 +41,13 @@
 		
 		st.executeUpdate("delete from timetable where day='"+day+"' and hour='"+hour+"' and hall_no='"+hall_no+"' and course_id='"+course_id+"' and staff_id='"+staff_id+"' and type='"+typeofclass+"' ");
 		
-		out.println("Hall Unbooked!!");	
+		out.print("<div class='msuccess logout_msg'>Hall Unbooked Successfully</div>");
 		
 		
 	}
 	catch(Exception e)
 	{
-		out.println("Some problem occured");
+		out.print("<div class='merror'>Some problem occured.Try Again Later</div>");
 	}
 %>
 

@@ -38,12 +38,12 @@
  
 	    st.executeUpdate("insert into timetable(day,hour,hall_no,course_id,staff_id,type) values('"+day+"','"+hour+"','"+hall_no+"','"+course_id+"','"+staff_id+"','"+typeofclass+"')");
 		
-		out.println("Hall booked successfully");
+		out.print("<div class='msuccess logout_msg'>Hall Booked Successfully</div>");
 		
 	}
 	catch(Exception e)
 	{
-		out.println("Some problem occured");
+		out.print("<div class='merror'>Some problem occured.Try Again Later</div>");
 	}
 %>	
 	

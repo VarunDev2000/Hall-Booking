@@ -169,6 +169,7 @@ for(Map h : e)
 
 </tbody>
 </table>
+<br/><br/>
 
 <%
 }

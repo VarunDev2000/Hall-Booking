@@ -131,7 +131,7 @@
 
 <center>
 
-<table class="table" id="tt">
+<table class="table" id="staff_tt">
   <thead class="thead-dark">
     <th style="color:red">Day/Hour</th>
     <th>1</th>

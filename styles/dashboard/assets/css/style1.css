@@ -103,6 +103,24 @@
 	}
 	
 	
+	#staff_tt {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: 90%;
+	  table-layout:fixed;
+	  -moz-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 5px 5px 5px #888;
+		-webkit-box-shadow: 5px 5px 5px #888;
+		box-shadow: 5px 5px 5px #888;
+	}
+
+	#staff_tt td, #staff_tt th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+	
+	
 	#unbook_t {
 	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	  border-collapse: collapse;
