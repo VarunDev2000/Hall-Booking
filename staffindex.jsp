@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="styles/message/css/msg.css">
 
 <% if((Integer)session.getAttribute("s_user_id") != null) 
 {
@@ -36,11 +37,19 @@
 
 	<style>
 	.right-panel header.header{
-	background:#ff4d4d  !important;
+	background:#4CAF50 !important;
+	}
+	
+	.bg-flat-color-1{
+		background-color:#00b3b3    !important;
+	}
+	
+	.bg-flat-color-3{
+		background-color:#3b5998    !important;
 	}
 	
 	.bg-flat-color-4{
-		background-color:#ffa64d !important;
+		background-color:#ff4d4d  !important;
 	}
 	</style>
 </head>
@@ -117,18 +126,18 @@
 </div>
 </div>
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="styles/dashboard/vendors/jquery/dist/jquery.min.js"></script>
+<script src="styles/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="styles/dashboard/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="styles/dashboard/assets/js/main.js"></script>
 
 
-<script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/widgets.js"></script>
-<script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-<script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="styles/dashboard/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="styles/dashboard/assets/js/dashboard.js"></script>
+<script src="styles/dashboard/assets/js/widgets.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
 <script>
 (function($) {
 	"use strict";
@@ -149,12 +158,13 @@
 </script>
 
 </body>
-</html
+</html>
 
 
 <%
 }
 else{
-out.print("Cannot Access this page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>

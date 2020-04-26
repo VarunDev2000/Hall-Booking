@@ -5,6 +5,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
+
 
 <% if((Integer)session.getAttribute("user_id") != null) 
 {
@@ -103,11 +105,13 @@ if((String)session.getAttribute("enrolled") != "false")
 <%
 }
 else{
-	out.print("Please do Enrollment First");
+out.print("<div class='mwarning'>You are not enrolled in any course.Complete Enrollment to download your HallTicket</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='studentindex.jsp'>Enroll Now</a></center>");
 }
 
 }
 else{
-out.print("Cannot Access this page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>

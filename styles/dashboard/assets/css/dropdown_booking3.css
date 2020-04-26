@@ -1,0 +1,14 @@
+.booking3_dd{
+	 position: relative;
+	 width: 100% !important;
+	 margin: 0 auto;
+	 font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+	 font-size: 18px;
+	 color: #333333;
+	 border:0px;
+	 padding:10px !important;
+	 background-color:#e6e6e6 !important;
+	 font-size:15px;
+	 border-radius:4px;
+	 box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1) !important;
+}

@@ -5,6 +5,7 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
 
 
 <% if((Integer)session.getAttribute("s_user_id") != null) 
@@ -15,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="Refresh" content="2;url='staffindex.jsp'" />
+		<meta http-equiv="Refresh" content="1;url='viewtimetable_staff.jsp'" />
         <title>HALL BOOKING</title>
     </head>
 <body>
@@ -52,7 +53,8 @@
 <%
 }
 else{
-out.print("Cannot Access this page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>
 

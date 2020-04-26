@@ -4,41 +4,55 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
+
 
 <% if((Integer)session.getAttribute("s_user_id") != null) 
 {
 %>
-<jsp:include page="staff_header.html" /> 
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
-		<style>
-		.dot1 {
-		  height: 15px;
-		  width: 15px;
-		  background-color: green;
-		  border-radius: 50%;
-		  display: inline-block;
-		}
-		
-		.dot2 {
-		  height: 15px;
-		  width: 15px;
-		  background-color: orange;
-		  border-radius: 50%;
-		  display: inline-block;
-		}
-		
-		td{
-			padding:10px;
-		}
-		</style>
+<html class="no-js" lang="en">
 
-    </head>
-    <body>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Timetable</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles/dashboard/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="styles/dashboard/assets/css/style.css">
+	<link rel="stylesheet" href="styles/dashboard/assets/css/style1.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+	<style>
+	.right-panel header.header{
+	background:#4CAF50 !important;
+	}
+	</style>
+</head>
+
+<body>
+
+<div id="right-panel" class="right-panel">
+
+<jsp:include page="staff_header.html" />
+
 <%
 	try
 	{
@@ -93,64 +107,80 @@
 				c_hallno[rs.getInt("day")][rs.getInt("hour")] = Integer.toString(rs.getInt("hall_no"));
 				
 				if(rs.getString("type").equals("Lecture"))
-					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:green";
+					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:#FFA781;color:maroon;font-weight:bold;";
 				else if(rs.getString("type").equals("Exam"))
-					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:orange";
+					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:#296c92;color:#00334d;font-weight:bold;";
 				else
 					c_type[rs.getInt("day")][rs.getInt("hour")] = "color:black";
 				
-				c[rs.getInt("day")][rs.getInt("hour")] = c_course[rs.getInt("day")][rs.getInt("hour")]+" ("+c_hallno[rs.getInt("day")][rs.getInt("hour")]+")";
+				c[rs.getInt("day")][rs.getInt("hour")] = c_course[rs.getInt("day")][rs.getInt("hour")]+" <br/>(Hall "+c_hallno[rs.getInt("day")][rs.getInt("hour")]+")";
 			}
 		}
 %>
+
+<div class="breadcrumbs">
+	<div class="col-sm-12">
+		<div class="page-header float-center">
+			<div class="page-title" align="center">
+				<h1>TIMETABLE</h1>
+				<br/>
+			</div>
+		</div>
+	</div>
+</div>
+
 <center>
 
-<table style="width:90%;table-layout: fixed;" border="2">
-  <tr>
+<table class="table" id="tt">
+  <thead class="thead-dark">
     <th style="color:red">Day/Hour</th>
     <th>1</th>
     <th>2</th>
 	<th>3</th>
 	<th>4</th>
-  </tr>
+  </thead>
+  
+  <tbody>
   <tr>
-    <td><b>MONDAY</b></td>
+    <td scope="row"><b>MONDAY</b></td>
     <td style=<%= c_type[1][1]%>><%= c[1][1] %></td>
     <td style=<%= c_type[1][2]%>><%= c[1][2] %></td>
 	<td style=<%= c_type[1][3]%>><%= c[1][3] %></td>
 	<td style=<%= c_type[1][4]%>><%= c[1][4] %></td>
   </tr>
   <tr>
-    <td><b>TUESDAY</b></td>
+    <td scope="row"><b>TUESDAY</b></td>
     <td style=<%= c_type[2][1]%> ><%= c[2][1] %></td>
     <td style=<%= c_type[2][2]%> ><%= c[2][2] %></td>
 	<td style=<%= c_type[2][3]%> ><%= c[2][3] %></td>
 	<td style=<%= c_type[2][4]%> ><%= c[2][4] %></td>
   </tr>
     <tr>
-    <td><b>WEDNESDAY</b></td>
+    <td scope="row"><b>WEDNESDAY</b></td>
     <td style=<%= c_type[3][1]%>><%= c[3][1] %></td>
     <td style=<%= c_type[3][2]%>><%= c[3][2] %></td>
 	<td style=<%= c_type[3][3]%>><%= c[3][3] %></td>
 	<td style=<%= c_type[3][4]%>><%= c[3][4] %></td>
   </tr>
     <tr>
-    <td><b>THURSDAY</b></td>
+    <td scope="row"><b>THURSDAY</b></td>
     <td style=<%= c_type[4][1]%>><%= c[4][1] %></td>
     <td style=<%= c_type[4][2]%>><%= c[4][2] %></td>
 	<td style=<%= c_type[4][3]%>><%= c[4][3] %></td>
 	<td style=<%= c_type[4][4]%>><%= c[4][4] %></td>
   </tr>
     <tr>
-    <td><b>FRIDAY</b></td>
+    <td scope="row"><b>FRIDAY</b></td>
     <td style=<%= c_type[5][1]%>><%= c[5][1] %></td>
     <td style=<%= c_type[5][2]%>><%= c[5][2] %></td>
 	<td style=<%= c_type[5][3]%>><%= c[5][3] %></td>
 	<td style=<%= c_type[5][4]%>><%= c[5][4] %></td>
   </tr>
+  </tbody>
+  
 </table>
 
-<br/><br/>
+<br/>
 
 <span class="dot1"></span> Lecture
 &nbsp;&nbsp;&nbsp;&nbsp;
@@ -164,12 +194,47 @@
 		out.println(e);
 	}
 %>
+
+</div>
+
+<script src="styles/dashboard/vendors/jquery/dist/jquery.min.js"></script>
+<script src="styles/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="styles/dashboard/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="styles/dashboard/assets/js/main.js"></script>
+
+
+<script src="styles/dashboard/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="styles/dashboard/assets/js/dashboard.js"></script>
+<script src="styles/dashboard/assets/js/widgets.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script>
+(function($) {
+	"use strict";
+
+	jQuery('#vmap').vectorMap({
+		map: 'world_en',
+		backgroundColor: null,
+		color: '#ffffff',
+		hoverOpacity: 0.7,
+		selectedColor: '#1de9b6',
+		enableZoom: true,
+		showTooltip: true,
+		values: sample_data,
+		scaleColors: ['#1de9b6', '#03a9f5'],
+		normalizeFunction: 'polynomial'
+	});
+})(jQuery);
+</script>
+
 </body>
 </html>
 
 <%
 }
 else{
-	out.print("Cannot access page");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>

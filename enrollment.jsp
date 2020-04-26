@@ -4,6 +4,9 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
+
+
 <% if((Integer)session.getAttribute("user_id") != null) 
 {
 if((String)session.getAttribute("enrolled") == "false")
@@ -39,11 +42,11 @@ if((String)session.getAttribute("enrolled") == "false")
 		}
 		session.setAttribute("enrolled","true");
 		
-		out.print("<center><h1>Enrollment Successful</h1><br/><br/><br/><h5>This page will redirect in 2 seconds</h5></center>");
+		out.print("<center><div class='msuccess ens_msg'>Enrollment Successful</div><br/><br/><h4 style='color:red;'>This page will redirect in 2 seconds..</h4></center>");
 	}
 	catch(Exception e)
 	{
-		out.println("Problem Enrolling to Courses..Try again Later");
+		out.print("<div class='merror'>Cannot Access this page	</div>");
 	}
 %>
     </body>
@@ -53,7 +56,8 @@ if((String)session.getAttribute("enrolled") == "false")
 }
 else
 {
-	out.print("Cannot Access Page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>
 

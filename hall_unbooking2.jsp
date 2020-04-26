@@ -5,6 +5,8 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
+
 
 <% if((Integer)session.getAttribute("s_user_id") != null) 
 {
@@ -55,7 +57,8 @@
 <%
 }
 else{
-out.print("Cannot Access this page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>
 

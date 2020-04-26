@@ -1,4 +1,3 @@
-
 	.card{
 	height:100px !important;
 	width:550px;
@@ -19,6 +18,12 @@
 	p{
 	color:white;
 	}
+	
+	.dropdown_p{
+	color:black;
+	font-weight:normal !important;	
+	}
+
 	
 	.nav-link{
 	color:white !important;
@@ -86,18 +91,38 @@
 	  width: 90%;
 	  table-layout:fixed;
 	  -moz-border-radius: 5px;
-border-radius: 5px;
--moz-box-shadow: 5px 5px 5px #888;
--webkit-box-shadow: 5px 5px 5px #888;
-box-shadow: 5px 5px 5px #888;
+		border-radius: 5px;
+		-moz-box-shadow: 5px 5px 5px #888;
+		-webkit-box-shadow: 5px 5px 5px #888;
+		box-shadow: 5px 5px 5px #888;
 	}
 
 	#student_tt td, #student_tt th {
 	  border: 1px solid #ddd;
 	  padding: 8px;
 	}
+	
+	
+	#unbook_t {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: 90%;
+	  table-layout:fixed;
+	  -moz-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 5px 5px 5px #888;
+		-webkit-box-shadow: 5px 5px 5px #888;
+		box-shadow: 5px 5px 5px #888;
+	}
 
-	#student_tt tr:nth-child(even){background-color: #f2f2f2;}
+	#unbook_t td, #unbook_t th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+	
+	#unbook_t td{
+	  padding-top:25px;
+	}
 
 
 	
@@ -118,23 +143,35 @@ box-shadow: 5px 5px 5px #888;
 	color:white !important;
 	}
 	
+	.unbook_btn{
+		width:60% !important;
+	}
 	
-		.dot1 {
-		  height: 15px;
-		  width: 15px;
-		  background-color: green;
-		  border-radius: 50%;
-		  display: inline-block;
-		}
-		
-		.dot2 {
-		  height: 15px;
-		  width: 15px;
-		  background-color: orange;
-		  border-radius: 50%;
-		  display: inline-block;
-		}
-		
-		td{
-			padding:10px;
-		}
+	.booking_btn{
+		width:30% !important;
+	}
+	
+	.booking_btn:hover{
+		width:40% !important;
+	}
+	
+	
+	.dot1 {
+	  height: 15px;
+	  width: 15px;
+	  background-color: #FFA781;
+	  border-radius: 50%;
+	  display: inline-block;
+	}
+	
+	.dot2 {
+	  height: 15px;
+	  width: 15px;
+	  background-color: #296c92;
+	  border-radius: 50%;
+	  display: inline-block;
+	}
+	
+	td{
+		padding:10px;
+	}

@@ -4,6 +4,8 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
+
 
 <% if((Integer)session.getAttribute("user_id") != null) 
 {
@@ -16,7 +18,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard</title>
+    <title>Timetable</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -114,13 +116,13 @@ if((String)session.getAttribute("enrolled") != "false")
 				c_hallno[rs.getInt("day")][rs.getInt("hour")] = Integer.toString(rs.getInt("hall_no"));
 				
 				if(rs.getString("type").equals("Lecture"))
-					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:green";
+					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:#FFA781;color:maroon;font-weight:bold;";
 				else if(rs.getString("type").equals("Exam"))
-					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:orange";
+					c_type[rs.getInt("day")][rs.getInt("hour")] = "background-color:#296c92;color:#00334d;font-weight:bold;";
 				else
 					c_type[rs.getInt("day")][rs.getInt("hour")] = "color:black";
 				
-				c[rs.getInt("day")][rs.getInt("hour")] = c_course[rs.getInt("day")][rs.getInt("hour")]+" - "+c_staff[rs.getInt("day")][rs.getInt("hour")]+" ("+c_hallno[rs.getInt("day")][rs.getInt("hour")]+")";
+				c[rs.getInt("day")][rs.getInt("hour")] = c_course[rs.getInt("day")][rs.getInt("hour")]+" - "+c_staff[rs.getInt("day")][rs.getInt("hour")]+" (Hall "+c_hallno[rs.getInt("day")][rs.getInt("hour")]+")";
 			}
 		}
 %>
@@ -201,24 +203,24 @@ if((String)session.getAttribute("enrolled") != "false")
 	
 }
 else{
-	out.print("Please do Enrollment First");
+out.print("<br/><br/><center><div class='mwarning enroll_msg'>You are not enrolled in any course.Complete Enrollment to access this page</div></center>");
 }
 %>
 
 </div>
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="styles/dashboard/vendors/jquery/dist/jquery.min.js"></script>
+<script src="styles/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="styles/dashboard/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="styles/dashboard/assets/js/main.js"></script>
 
 
-<script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/widgets.js"></script>
-<script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-<script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="styles/dashboard/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="styles/dashboard/assets/js/dashboard.js"></script>
+<script src="styles/dashboard/assets/js/widgets.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
 <script>
 (function($) {
 	"use strict";
@@ -244,6 +246,7 @@ else{
 <%
 }
 else{
-	out.print("Cannot access page");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>

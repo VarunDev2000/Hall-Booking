@@ -4,6 +4,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
 
 
 <% if((Integer)session.getAttribute("user_id") != null) 
@@ -178,18 +179,18 @@ else
 
 </div>
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="styles/dashboard/vendors/jquery/dist/jquery.min.js"></script>
+<script src="styles/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="styles/dashboard/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="styles/dashboard/assets/js/main.js"></script>
 
 
-<script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/widgets.js"></script>
-<script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-<script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-<script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="styles/dashboard/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="styles/dashboard/assets/js/dashboard.js"></script>
+<script src="styles/dashboard/assets/js/widgets.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
 <script>
 (function($) {
 	"use strict";
@@ -217,6 +218,7 @@ else
 
 else
 {
-	out.print("Cannot Access Page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>

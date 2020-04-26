@@ -7,26 +7,58 @@
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="styles/message/css/msg.css">
 
 
 <% if((Integer)session.getAttribute("s_user_id") != null) 
 {
 %>
+
+
+<html class="no-js" lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hall Unbooking</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles/dashboard/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="styles/dashboard/vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="styles/dashboard/assets/css/style.css">
+	<link rel="stylesheet" href="styles/dashboard/assets/css/style1.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+	<style>
+	.right-panel header.header{
+	background:#4CAF50 !important;
+	}
+	</style>
+	
+</head>
+
+<body>
+
+<div id="right-panel" class="right-panel">
+
 <jsp:include page="staff_header.html" />
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>HALL UNBOOKING</title>
-		<style>
-		td{
-			padding:15px;
-		}
-		</style>
-    </head>
-<body>
-	
+
 <%
 	String day = String.valueOf(request.getParameter("day"));
 		
@@ -42,6 +74,7 @@
 	    ResultSet rs = st.executeQuery("select * from timetable where staff_id='"+staff_id+"' ");
 		
 		Integer size = 0;
+		Integer count = 1;
 		
 		List<Map> e = new ArrayList<Map>();
 		
@@ -58,6 +91,7 @@
 			ResultSet rs1 = st1.executeQuery("select course_name from course where course_id='"+rs.getInt("course_id")+"' ");
 			rs1.absolute(1);
 			
+			fin.put("sno", String.valueOf(count));
 			fin.put("day", d.get(rs.getInt("day")-1));
 			fin.put("hour",String.valueOf(rs.getInt("hour")));
 			fin.put("hall_no",String.valueOf(rs.getInt("hall_no")));
@@ -68,6 +102,7 @@
 			
 			e.add(fin);
 			size = size + 1;
+			count = count + 1;
 		}
 		
 %>	
@@ -76,21 +111,35 @@
 <%
 if(size == 0)
 {
-	out.print("<p>No Bookings</p>");
+	out.print("<div class='mwarning'>No Bookings</div>");
 }
 else
 {
 %>
 
-<table style="width:90%;;table-layout: fixed;" border="2">
-  <tr>
+<div class="breadcrumbs">
+	<div class="col-sm-12">
+		<div class="page-header float-center">
+			<div class="page-title" align="center">
+				<h1>YOUR BOOKINGS</h1>
+				<br/>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<table class="table" id="unbook_t">
+  <thead class="thead-dark">
+	<th style="width:50px !important;">#</th>
     <th>Day</th>
     <th>Hour</th>
     <th>Hall No</th>
 	<th>Course</th>
 	<th>Type</th>
 	<th>UnBook</th>
-  </tr>
+  </thead>
+  <tbody>
   
 <%	
 for(Map h : e) 
@@ -98,6 +147,7 @@ for(Map h : e)
 %>
 
 <tr>
+	<td><%= h.get("sno") %></td>
 	<td><%= h.get("day") %></td>
 	<td><%= h.get("hour") %></td>
 	<td><%= h.get("hall_no") %></td>
@@ -107,7 +157,7 @@ for(Map h : e)
 	<center>
 		<form id=<%= h.get("f_value")%> action="hall_unbooking2.jsp" method="POST">
 			 <input type="hidden" name="f_value" value=<%= h.get("f_value")%>>
-			<input type ="submit" value="UnBook" style="background-color:red;color:white;padding:5px">
+			<input type ="submit" value="UNBOOK" class="btn btn-danger unbook_btn">
 		</form>
 	</center>
 	</td>
@@ -117,6 +167,7 @@ for(Map h : e)
 }
 %>
 
+</tbody>
 </table>
 
 <%
@@ -132,13 +183,48 @@ for(Map h : e)
 		out.println(e);
 	}
 %>
+
+</div>
+
+<script src="styles/dashboard/vendors/jquery/dist/jquery.min.js"></script>
+<script src="styles/dashboard/vendors/popper.js/dist/umd/popper.min.js"></script>
+<script src="styles/dashboard/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="styles/dashboard/assets/js/main.js"></script>
+
+
+<script src="styles/dashboard/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+<script src="styles/dashboard/assets/js/dashboard.js"></script>
+<script src="styles/dashboard/assets/js/widgets.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+<script src="styles/dashboard/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script>
+(function($) {
+	"use strict";
+
+	jQuery('#vmap').vectorMap({
+		map: 'world_en',
+		backgroundColor: null,
+		color: '#ffffff',
+		hoverOpacity: 0.7,
+		selectedColor: '#1de9b6',
+		enableZoom: true,
+		showTooltip: true,
+		values: sample_data,
+		scaleColors: ['#1de9b6', '#03a9f5'],
+		normalizeFunction: 'polynomial'
+	});
+})(jQuery);
+</script>
+
 </body>
 </html>
 
 <%
 }
 else{
-out.print("Cannot Access this page!!");
+out.print("<div class='merror'>Cannot Access this page</div>");
+out.print("<br/><br/><center><a style='color:blue;' href='index.html'>Home</a></center>");
 }
 %>
 
