@@ -160,7 +160,7 @@ else
 		<div class="card text-white bg-flat-color-3">
 		<a href="report.jsp">
 			<div class="card-body pb-0">
-				<i class="fa fa-check"></i>
+				<i class="fa fa-address-card"></i>
 				<h3 class="dash_btns">GENERATE HALLTICKET</h3>
 			</div>
 		</a>
@@ -172,6 +172,10 @@ else
    
 
 </div>
+<%
+}
+%>
+
 </div>
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -207,8 +211,8 @@ else
 
 </body>
 </html>
+
 <%
-}
 }
 
 else
