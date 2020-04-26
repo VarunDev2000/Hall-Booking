@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2020 at 02:00 PM
+-- Generation Time: Apr 25, 2020 at 09:24 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -65,8 +65,12 @@ INSERT INTO `course_enrolled` (`id`, `student_id`, `course_id`, `staff_id`) VALU
 (2, 3, 2, 4),
 (3, 4, 1, 3),
 (4, 4, 2, 2),
-(22, 10, 1, 1),
-(23, 10, 2, 4);
+(10, 22, 1, 1),
+(11, 22, 2, 2),
+(14, 10, 1, 1),
+(15, 10, 2, 4),
+(18, 8, 1, 3),
+(19, 8, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -111,8 +115,11 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`student_id`, `name`, `u_name`, `password`) VALUES
 (3, 'Student1', 'stu_1', 'stu1_pass'),
 (4, 'Student2', 'stu_2', 'stu2_pass'),
+(5, 'varun', 'varun', 'varun'),
+(8, 'fg', 'fg', 'fg'),
 (10, 'v', 'v', 'v'),
 (11, 's', 's', 's'),
+(22, 'd', 'd', 'd'),
 (96, 'e', 'e', 'e');
 
 -- --------------------------------------------------------
@@ -136,13 +143,11 @@ CREATE TABLE `timetable` (
 
 INSERT INTO `timetable` (`day`, `hour`, `hall_no`, `course_id`, `staff_id`, `type`) VALUES
 (1, 3, 1, 1, 1, 'Exam'),
+(1, 4, 1, 1, 1, 'Exam'),
 (2, 1, 1, 2, 4, 'Exam'),
+(2, 3, 3, 1, 1, 'Lecture'),
 (2, 4, 3, 2, 2, 'Exam'),
-(3, 1, 2, 1, 1, 'Lecture'),
 (3, 1, 4, 2, 4, 'Exam'),
-(3, 2, 3, 1, 1, 'Lecture'),
-(3, 3, 3, 1, 1, 'Exam'),
-(3, 4, 2, 1, 1, 'Lecture'),
 (5, 3, 3, 1, 3, 'Lecture');
 
 --
@@ -202,19 +207,19 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `course_enrolled`
 --
 ALTER TABLE `course_enrolled`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `staff_id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `student_id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- Constraints for dumped tables
