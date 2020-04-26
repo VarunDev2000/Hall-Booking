@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>STAFF SIGN-IN</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html lang="en">
+<head>
+	<title>Staff SignUp</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<style>
+	.p-t-50 {
+    padding-top:0px !important ;
+	}
+	
+	.login100-form-btn{
+	background-color:#ff4d4d !important;
+	}
+	.txt1{
+	color:#ff4d4d !important;
+	}
+	</style>
 	
 	<script>
 		function validateForm() {
@@ -28,25 +35,102 @@ and open the template in the editor.
 		  }
 		}
 	</script>
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/css/util.css">
+	<link rel="stylesheet" type="text/css" href="styles/loginsignup/css/main.css">
+<!--===============================================================================================-->
+</head>
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form name="staff" action="staffsigndb.jsp" method="POST" onsubmit="return validateForm()" class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-51">
+						Staff - SignUp
+					</span>
 
-<center>
-<h1>STAFF - SIGN IN</h1>
-<br/>
-<form name="staff" action="staffsigndb.jsp" method="POST" onsubmit="return validateForm()">
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Name is required">
+						<input class="input100" type="text" name="name" required placeholder="Name">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+						<input class="input100" type="text" name="uname"  required minlength="5" placeholder="Username">
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" name="password"  required  placeholder="Password">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Confirm Password is required">
+						<input class="input100" type="password" name="cpass" required placeholder="Confirm Password">
+						<span class="focus-input100"></span>
+					</div>
+					
+					<div class="flex-sb-m w-full p-t-3 p-b-24">
+						<div class="contact100-form-checkbox">
+							<a href="staff.html" class="txt1">Log in</a>
+						</div>
 
-Username  <input type="text" name="uname" required minlength="5">
-<br/><br/>
-Name      <input type="text" name="name" required>
-<br/><br/>
-Password  <input type="password" name="password" required minlength="8">
-<br/><br/>
-Confirm Password<input type="password" name="cpass" required minlength="8">
-<br/><br/><br/>
-<input type="submit" value="submit">
+						<div>
+							<a href="index.html" class="txt1">
+								Back
+							</a>
+						</div>
+					</div>
 
-</form>
-</center>
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn">
+							Sign Up
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/bootstrap/js/popper.js"></script>
+	<script src="styles/loginsignup/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/daterangepicker/moment.min.js"></script>
+	<script src="styles/loginsignup/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="styles/loginsignup/js/main.js"></script>
 
 </body>
 </html>

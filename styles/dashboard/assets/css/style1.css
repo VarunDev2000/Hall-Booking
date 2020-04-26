@@ -1,0 +1,139 @@
+
+	.card{
+	height:100px !important;
+	width:550px;
+	}
+	
+	.card:hover {
+	  transform: scale(1.04);
+	}
+	
+	.block{
+		box-shadow: 0 0 15px -2px #444444 !important;
+	}
+	
+	body{
+	background-color:white !important;
+	}
+	
+	p{
+	color:white;
+	}
+	
+	.nav-link{
+	color:white !important;
+	}
+	
+	.right-panel header.header{
+	background:#827ffe !important;
+	}
+
+	
+	.bg-flat-color-3{
+		background-color:#2eb82e !important;
+	}
+	
+	.enrollment_form{
+	background-color:white;
+	width:800px;
+	padding:40px;
+	  box-shadow: 
+       inset 3em -3em 3em rgba(0,0,0,0.1), 
+       0 0  0 2px rgb(255,255,255),
+        0.3em 0.3em 1em rgba(0,0,0,0.3);
+	}
+	
+	.course_name{
+		font-family: "Comic Sans MS", cursive, sans-serif;
+		font-size: 17px;
+		letter-spacing: -0.4px;
+		word-spacing: 4px;
+		color: red;
+		font-weight: 400;
+		text-decoration: none solid rgb(68, 68, 68);
+		font-variant: normal;
+		text-transform: none;
+	}
+	
+	#staffs {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: 100%;
+	}
+
+	#staffs td, #staffs th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+
+	#staffs tr:nth-child(even){background-color: #f2f2f2;}
+
+	#staffs tr:hover {background-color: #ddd;}
+
+	#staffs th {
+	  padding-top: 12px;
+	  padding-bottom: 12px;
+	  text-align: left;
+	  background-color: #4CAF50;
+	  color: white;
+	}
+	
+	
+	#student_tt {
+	  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	  border-collapse: collapse;
+	  width: 90%;
+	  table-layout:fixed;
+	  -moz-border-radius: 5px;
+border-radius: 5px;
+-moz-box-shadow: 5px 5px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: 5px 5px 5px #888;
+	}
+
+	#student_tt td, #student_tt th {
+	  border: 1px solid #ddd;
+	  padding: 8px;
+	}
+
+	#student_tt tr:nth-child(even){background-color: #f2f2f2;}
+
+
+	
+	.btn{
+		width:100%;
+		font-size:15px;
+		padding:5px;
+		border-radius:12px;
+	}
+	
+	.fa{
+		color:white;
+	}
+	
+	.dash_btns{
+	font-family: 'Open Sans' sans-serif !important;
+	padding-top:10px !important;
+	color:white !important;
+	}
+	
+	
+		.dot1 {
+		  height: 15px;
+		  width: 15px;
+		  background-color: green;
+		  border-radius: 50%;
+		  display: inline-block;
+		}
+		
+		.dot2 {
+		  height: 15px;
+		  width: 15px;
+		  background-color: orange;
+		  border-radius: 50%;
+		  display: inline-block;
+		}
+		
+		td{
+			padding:10px;
+		}
